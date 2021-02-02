@@ -13,6 +13,7 @@ class m210201_215115_products extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(255)->notNull(),
             'img' => $this->string()->notNull(),
+            'price' => $this->string(50)->notNull(),
             'date' => $this->dateTime(),
             'user_name' => $this->string(255)->notNull(),
             'reviews_count' => $this->integer()->defaultValue(0),
@@ -29,6 +30,12 @@ class m210201_215115_products extends Migration
             'idx-products-img',
             'products',
             'img'
+        );
+
+        $this->createIndex(
+            'idx-products-price',
+            'products',
+            'price'
         );
 
         $this->createIndex(
@@ -63,6 +70,11 @@ class m210201_215115_products extends Migration
         );
 
         $this->dropIndex(
+            'idx-products-price',
+            'products'
+        );
+
+        $this->dropIndex(
             'idx-products-date',
             'products'
         );
@@ -77,6 +89,6 @@ class m210201_215115_products extends Migration
             'products'
         );
 
-        $this->dropTable('news');
+        $this->dropTable('products');
     }
 }

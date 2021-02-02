@@ -19,6 +19,7 @@ class ProductsSearch extends Products
         return [
             [['id', 'reviews_count'], 'integer'],
             [['name', 'img', 'date', 'user_name'], 'safe'],
+            [['name', 'img', 'price', 'date', 'user_name'], 'safe'],
         ];
     }
 
@@ -65,6 +66,7 @@ class ProductsSearch extends Products
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'img', $this->img])
+            ->andFilterWhere(['like', 'price', $this->price]) 
             ->andFilterWhere(['like', 'user_name', $this->user_name]);
 
         return $dataProvider;

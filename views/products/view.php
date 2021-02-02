@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'name',
             'img',
+            'price',
             'date',
             'user_name',
             'reviews_count',

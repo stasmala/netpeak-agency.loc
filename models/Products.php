@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $name
  * @property string $img
+ * @property string $price 
  * @property string|null $date
  * @property string $user_name
  * @property int|null $reviews_count
@@ -30,10 +31,11 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'img', 'user_name'], 'required'],
+            [['name', 'img', 'price', 'user_name'], 'required'],
             [['date'], 'safe'],
             [['reviews_count'], 'integer'],
             [['name', 'img', 'user_name'], 'string', 'max' => 255],
+            [['price'], 'string', 'max' => 50], 
         ];
     }
 
@@ -44,11 +46,12 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'img' => 'Img',
-            'date' => 'Date',
-            'user_name' => 'User Name',
-            'reviews_count' => 'Reviews Count',
+            'name' => 'Название',
+            'img' => 'Изображение',
+            'price' => 'Цена',
+            'date' => 'Дата',
+            'user_name' => 'Имя добавившего',
+            'reviews_count' => 'Количество отзывов',
         ];
     }
 }
